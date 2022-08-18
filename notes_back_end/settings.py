@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1a381v)ghoexv46nw0uuiyo_g*mq&p%ja($1-$gbz3&=rhd@ni'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['imasnote.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
 	'django.middleware.security.SecurityMiddleware',
 	'corsheaders.middleware.CorsMiddleware',
+	'whitenoise.middleware.WhiteNoiseMiddleware',
 
 	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.middleware.common.CommonMiddleware',
@@ -129,6 +130,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
 	BASE_DIR / 'frontend/build/static'
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
